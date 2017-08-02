@@ -1,26 +1,23 @@
-console.log(customers);
+let container = document.getElementsByClassName('container')[0];
 
-let container = document.getElementsByClassName ('container');
+for (var i = 0; i < customers.results.length; i++) {
 
 let template =
 
 `
-<body>
-  <div class="images">
-    <img src=${customers.results[5].picture.medium}>
-  </div>
   <div>
-    <p>${customers.results[0].email}></p>
-    <p>${customers.results[2].location.street}<>/p>
-    <p>${customers.results[2].location.city}<>/p>
-    <p>${customers.results[2].location.state}<>/p>
-    <p>${customers.results[2].location.postcode}<>/p>
-    <p>${customers.results[4].phone}<>/p>
-    <p>${customers.results[1].id.value}<>/p>
-</body>
-
-
+    <img src=${customers.results[i].picture.large}>
+    <p>${customers.results[i].name.first+ " " + customers.results[i].name.last}
+    <p>${customers.results[i].email}</p>
+    <p>${customers.results[i].location.street}</p>
+    <p>${customers.results[i].location.city + ", " + customers.results[i].location.state + "  " + customers.results[i].location.postcode}</p>
+    <p>${customers.results[i].phone}</p>
+    <p>${customers.results[i].id.value}</p>
+    </div>
 `;
 
-container.innerHMTL = template;
-console.log(template);
+
+
+container.innerHTML += template;
+
+}
